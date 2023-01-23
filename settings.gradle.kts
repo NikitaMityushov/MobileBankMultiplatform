@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
         google()
-        gradlePluginPortal()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 
@@ -23,7 +23,6 @@ dependencyResolutionManagement {
                 val composeActivityVersion = "1.5.1"
                 library("compose-activity", "androidx.activity:activity-compose:$composeActivityVersion")
 
-
             }
         }
 
@@ -32,4 +31,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "MobileBankMultiplatform"
 include(":androidApp")
+include(":androidApp:app")
 include(":shared")

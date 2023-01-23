@@ -1,36 +1,11 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    //trick: for the same plugin versions in all sub-modules
+    id("com.android.application").version("7.3.1").apply(false)
+    id("com.android.library").version("7.3.1").apply(false)
+    kotlin("android").version("1.7.10").apply(false)
+    kotlin("multiplatform").version("1.7.10").apply(false)
 }
 
-android {
-    namespace = "com.mityushovn.mobilebankmultiplatform.android"
-    compileSdk = 33
-    defaultConfig {
-        applicationId = "com.mityushovn.mobilebankmultiplatform.android"
-        minSdk = 21
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.0"
-    }
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-}
-
-dependencies {
-
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
 }
