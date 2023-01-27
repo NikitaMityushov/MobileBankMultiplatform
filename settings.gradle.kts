@@ -22,6 +22,10 @@ dependencyResolutionManagement {
                 library("compose-material-material", "androidx.compose.material:material:$composeVersion")
                 val composeActivityVersion = "1.5.1"
                 library("compose-activity", "androidx.activity:activity-compose:$composeActivityVersion")
+                val agpVersion = "7.3.1"
+                library("agp", "com.android.tools.build:gradle:$agpVersion")
+                val kotlinGP = "1.7.10"
+                library("kotlingp", "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGP")
 
             }
         }

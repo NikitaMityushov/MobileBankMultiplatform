@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform")
-    id("com.android.library")
+    `library-android`
 }
 
 kotlin {
@@ -43,14 +43,5 @@ kotlin {
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
         }
-    }
-}
-
-android {
-    namespace = "com.mityushovn.mobilebankmultiplatform"
-    compileSdk = 33
-    defaultConfig {
-        minSdk = 21
-        targetSdk = 33
     }
 }
