@@ -25,8 +25,7 @@ dependencyResolutionManagement {
                 val agpVersion = "7.3.1"
                 library("agp", "com.android.tools.build:gradle:$agpVersion")
                 val kotlinGP = "1.7.10"
-                library("kotlingp", "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGP")
-
+                library("kotlinGP", "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGP")
             }
         }
 

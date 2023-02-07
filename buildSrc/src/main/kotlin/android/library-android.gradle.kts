@@ -3,7 +3,6 @@ plugins {
 }
 
 android {
-    namespace = ApkConfig.NAMESPACE
     compileSdk = ApkConfig.COMPILE_SDK_VERSION
     defaultConfig {
         minSdk = ApkConfig.MIN_SDK_VERSION

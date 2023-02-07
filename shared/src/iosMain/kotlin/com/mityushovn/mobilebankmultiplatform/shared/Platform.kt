@@ -1,4 +1,4 @@
-package com.mityushovn.mobilebankmultiplatform
+package com.mityushovn.mobilebankmultiplatform.shared
 
 import platform.UIKit.UIDevice
 

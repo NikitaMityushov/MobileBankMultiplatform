@@ -1,4 +1,4 @@
-package com.mityushovn.mobilebankmultiplatform
+package com.mityushovn.mobilebankmultiplatform.shared
 
 class Greeting {
     private val platform: Platform = getPlatform()

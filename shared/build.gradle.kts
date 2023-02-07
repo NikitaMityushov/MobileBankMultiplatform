@@ -1,21 +1,9 @@
 plugins {
-    kotlin("multiplatform")
+    `multi-library`
     `library-android`
 }
 
 kotlin {
-    android()
-    
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "shared"
-        }
-    }
-
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
@@ -23,8 +11,7 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
-        val androidTest by getting
+
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -44,4 +31,8 @@ kotlin {
             iosSimulatorArm64Test.dependsOn(this)
         }
     }
+}
+
+android {
+    namespace = "com.mityushovn.mobilebankmultiplatform.shared"
 }

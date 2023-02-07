@@ -1,4 +1,4 @@
-package com.mityushovn.mobilebankmultiplatform
+package com.mityushovn.mobilebankmultiplatform.shared
 
 interface Platform {
     val name: String
