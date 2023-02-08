@@ -33,6 +33,12 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "MobileBankMultiplatform"
+// shared
 include(":androidApp")
 include(":androidApp:app")
 include(":shared")
+// core
+include(":core")
+include(":core:ui")
+// features
+include(":features")
