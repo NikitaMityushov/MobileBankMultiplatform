@@ -1,4 +1,4 @@
-package com.mityushovn.mobilebankmultiplatform.android
+package com.mityushovn.mobilebankmultiplatform.android.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

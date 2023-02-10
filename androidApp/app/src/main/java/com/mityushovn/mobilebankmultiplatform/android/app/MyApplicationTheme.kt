@@ -1,4 +1,4 @@
-package com.mityushovn.mobilebankmultiplatform.android
+package com.mityushovn.mobilebankmultiplatform.android.app
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

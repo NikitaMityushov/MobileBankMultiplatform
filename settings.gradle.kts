@@ -4,6 +4,7 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+    includeBuild("build-logic")
 }
 
 dependencyResolutionManagement {
@@ -12,7 +13,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
     versionCatalogs {
-        versionCatalogs {
             create("libs") {
                 val composeVersion = "1.2.1"
                 library("compose-ui-ui", "androidx.compose.ui:ui:$composeVersion")
@@ -20,25 +20,23 @@ dependencyResolutionManagement {
                 library("compose-ui-preview", "androidx.compose.ui:ui-tooling-preview:$composeVersion")
                 library("compose-foundation-foundation", "androidx.compose.foundation:foundation:$composeVersion")
                 library("compose-material-material", "androidx.compose.material:material:$composeVersion")
+                bundle("compose-theme", listOf("compose-ui-ui", "compose-foundation-foundation", "compose-material-material"))
                 val composeActivityVersion = "1.5.1"
                 library("compose-activity", "androidx.activity:activity-compose:$composeActivityVersion")
                 val agpVersion = "7.3.1"
-                library("agp", "com.android.tools.build:gradle:$agpVersion")
+                plugin("agp", "com.android.tools.build:gradle").version(agpVersion)
                 val kotlinGP = "1.7.10"
-                library("kotlinGP", "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGP")
-            }
+                plugin("kotlinGP", "org.jetbrains.kotlin:kotlin-gradle-plugin").version(kotlinGP)
         }
-
     }
 }
 
 rootProject.name = "MobileBankMultiplatform"
-// shared
+// builds
+
+// androidApp
 include(":androidApp")
 include(":androidApp:app")
+include(":androidApp:ui")
+// shared
 include(":shared")
-// core
-include(":core")
-include(":core:ui")
-// features
-include(":features")
