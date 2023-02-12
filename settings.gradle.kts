@@ -40,3 +40,5 @@ include(":androidApp:app")
 include(":androidApp:ui")
 // shared
 include(":shared")
+include(":shared:sample")
+include(":shared:auth")

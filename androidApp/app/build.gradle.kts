@@ -16,6 +16,6 @@ dependencies {
         implementation(compose.activity)
     }
 
-    implementation(project(":shared"))
+    implementation(project(":shared:sample"))
     implementation(project(":androidApp:ui"))
 }
