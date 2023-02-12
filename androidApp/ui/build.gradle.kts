@@ -1,5 +1,5 @@
 plugins {
-    id("bank.library-android")
+    id("bank.library-android-compose")
 }
 
 android {

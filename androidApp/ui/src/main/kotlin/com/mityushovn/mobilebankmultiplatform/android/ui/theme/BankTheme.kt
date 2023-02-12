@@ -1,5 +1,8 @@
 package com.mityushovn.mobilebankmultiplatform.android.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -47,4 +50,41 @@ private val LocalBankTypography = staticCompositionLocalOf {
         caption_1_13_regular = TextStyle.Default,
         caption_2_11_regular = TextStyle.Default
     )
+}
+
+/**
+ * Provides a set of colors and typography styles to be used in the application
+ */
+@Composable
+fun BankTheme(
+    isDarkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colors = if (isDarkTheme) bankDarkColors else bankLightColors
+    val typo = bankTypography
+
+    CompositionLocalProvider(
+        LocalBankColors provides colors,
+        LocalBankTypography provides typo,
+        content = content
+    )
+}
+
+/**
+ * Contains functions to access current theme values provided at the call site's position in the hierarchy.
+ */
+object BankTheme {
+    /**
+     * Retrieves current [BankColors]
+     */
+    val colors: BankColors
+        @Composable
+        get() = LocalBankColors.current
+
+    /**
+     * Retrieves current [BankTypography]
+     */
+    val typography: BankTypography
+        @Composable
+        get() = LocalBankTypography.current
 }
