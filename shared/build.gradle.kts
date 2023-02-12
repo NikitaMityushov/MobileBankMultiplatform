@@ -1,6 +1,6 @@
 plugins {
-    `multi-library`
-    `library-android`
+    id("bank.multi-library")
+    id("bank.library-android")
 }
 
 kotlin {

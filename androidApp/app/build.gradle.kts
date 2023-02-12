@@ -1,5 +1,9 @@
 plugins {
-    `app-android`
+    id("bank.app-android")
+}
+
+android {
+    namespace = "com.mityushovn.mobilebankmultiplatform.android.app"
 }
 
 dependencies {
@@ -11,5 +15,7 @@ dependencies {
         implementation(compose.material.material)
         implementation(compose.activity)
     }
+
     implementation(project(":shared"))
+    implementation(project(":androidApp:ui"))
 }

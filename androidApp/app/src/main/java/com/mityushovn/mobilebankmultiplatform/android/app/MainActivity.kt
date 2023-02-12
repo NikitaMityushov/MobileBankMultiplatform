@@ -1,4 +1,4 @@
-package com.mityushovn.mobilebankmultiplatform.android
+package com.mityushovn.mobilebankmultiplatform.android.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,13 +8,14 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.mityushovn.mobilebankmultiplatform.android.ui.theme.BankTheme
 import com.mityushovn.mobilebankmultiplatform.shared.Greeting
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApplicationTheme {
+            BankTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
@@ -34,7 +35,7 @@ fun GreetingView(text: String) {
 @Preview
 @Composable
 fun DefaultPreview() {
-    MyApplicationTheme {
+    BankTheme {
         GreetingView("Hello, Android!")
     }
 }
