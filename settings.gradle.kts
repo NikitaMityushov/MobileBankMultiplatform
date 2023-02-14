@@ -21,12 +21,53 @@ dependencyResolutionManagement {
                 library("compose-foundation-foundation", "androidx.compose.foundation:foundation:$composeVersion")
                 library("compose-material-material", "androidx.compose.material:material:$composeVersion")
                 bundle("compose-theme", listOf("compose-ui-ui", "compose-foundation-foundation", "compose-material-material"))
+
+                val composeBomVersion = "2023.01.00"
+                library("compose-bom", "androidx.compose:compose-bom:$composeBomVersion")
+
                 val composeActivityVersion = "1.5.1"
                 library("compose-activity", "androidx.activity:activity-compose:$composeActivityVersion")
+
+                val composeViewModelVersion = "2.5.1"
+                library("compose-viewmodel", "androidx.lifecycle:lifecycle-viewmodel-compose:$composeViewModelVersion")
+
+                val fragmentVersion = "1.5.5"
+                library("androidx-fragment-ktx", "androidx.fragment:fragment-ktx:$fragmentVersion")
+                library("androidx-fragment-debug", "androidx.fragment:fragment-testing:$fragmentVersion")
+
+                val decomposeVersion = "1.0.0"
+                library("decompose-decompose", "com.arkivanov.decompose:decompose:$decomposeVersion")
+                library("decompose-compose-jetpack","com.arkivanov.decompose:extensions-compose-jetpack:$decomposeVersion")
+
+                val ktorVersion = "2.2.3"
+                library("ktor-client-core", "io.ktor:ktor-client-core:$ktorVersion")
+                library("ktor-client-negotiation", "io.ktor:ktor-client-content-negotiation:$ktorVersion")
+                library("ktor-client-kotlinx-serialization", "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+                library("ktor-client-okhttp", "io.ktor:ktor-client-okhttp:$ktorVersion")
+                library("ktor-client-darwin", "io.ktor:ktor-client-darwin:$ktorVersion")
+
+                val sqlDelightVersion = "1.5.4"
+                library("sqldelight-runtime", "com.squareup.sqldelight:runtime:$sqlDelightVersion")
+                library("sqldelight-android", "com.squareup.sqldelight:android-driver:$sqlDelightVersion")
+                library("sqldelight-native", "com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+
+                val coroutinesVersion = "1.6.4"
+                library("kotlin-coroutines-core", "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                library("kotlin-coroutines-android", "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+
                 val agpVersion = "7.3.1"
                 plugin("agp", "com.android.tools.build:gradle").version(agpVersion)
-                val kotlinGP = "1.7.10"
+
+                val kotlinGP = "1.8.0"
                 plugin("kotlinGP", "org.jetbrains.kotlin:kotlin-gradle-plugin").version(kotlinGP)
+                plugin("kotlinx-serialization", "org.jetbrains.kotlin.plugin.serialization").version(kotlinGP)
+
+                val kodeinVersion = "7.18.0"
+                library("kodein", "org.kodein.di:kodein-di:$kodeinVersion")
+
+                val kinzhalVersion = "0.0.5"
+                library("kinzhal-processor","com.daugeldauge.kinzhal:kinzhal-processor:$kinzhalVersion")
+                library("kinzhal-annotations","com.daugeldauge.kinzhal:kinzhal-annotations:$kinzhalVersion")
         }
     }
 }
@@ -42,3 +83,4 @@ include(":androidApp:ui")
 include(":shared")
 include(":shared:sample")
 include(":shared:auth")
+include(":androidApp:feature-auth")

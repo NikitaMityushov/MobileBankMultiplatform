@@ -1,9 +1,9 @@
 plugins {
-    id("bank.app-android")
+    id("bank.library-android-compose")
 }
 
 android {
-    namespace = "com.mityushovn.mobilebankmultiplatform.android.app"
+    namespace = "com.mityushovn.mobilebankmultiplatform.android.feature_auth"
 }
 
 dependencies {
@@ -13,13 +13,11 @@ dependencies {
         implementation(compose.ui.tooling)
         implementation(compose.foundation.foundation)
         implementation(compose.material.material)
-        implementation(compose.activity)
-        implementation(platform(libs.compose.bom))
+        implementation(compose.viewmodel)
+        implementation(platform(compose.bom))
+        implementation(androidx.fragment.ktx)
     }
 
-    implementation(project(":shared:sample"))
     implementation(project(":androidApp:ui"))
-
-    // features
-    implementation(project(":androidApp:feature-auth"))
+    implementation(project(":shared:auth"))
 }

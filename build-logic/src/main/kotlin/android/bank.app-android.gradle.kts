@@ -1,3 +1,6 @@
+import common.KotlinConfig
+import gradle.kotlin.dsl.accessors._43eb709616901b6142395cb7066fc79f.kotlinOptions
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -17,14 +20,21 @@ android {
     buildFeatures {
         compose = true
     }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.0"
+        kotlinCompilerExtensionVersion = KotlinConfig.KOTLIN_COMPILER_EXTENSION_VERSION
     }
+
+    kotlinOptions {
+        jvmTarget = KotlinConfig.JVM_TARGET
+    }
+
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
     buildTypes {
         maybeCreate("debug").apply {
             multiDexEnabled = true
