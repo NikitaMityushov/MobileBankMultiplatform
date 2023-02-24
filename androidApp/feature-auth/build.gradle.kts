@@ -8,12 +8,11 @@ android {
 
 dependencies {
     with(libs) {
-        implementation(compose.ui.ui)
-        implementation(compose.ui.preview)
-        implementation(compose.ui.tooling)
-        implementation(compose.foundation.foundation)
-        implementation(compose.material.material)
-        implementation(compose.viewmodel)
+//        implementation(compose.ui.ui)
+//        implementation(compose.ui.preview)
+//        implementation(compose.ui.tooling)
+//        implementation(compose.foundation.foundation)
+//        implementation(compose.material.material)
         implementation(platform(compose.bom))
         implementation(androidx.fragment.ktx)
     }

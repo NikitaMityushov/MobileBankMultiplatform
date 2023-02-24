@@ -1,0 +1,3 @@
+package com.mityushovn.mobilebankmultiplatform.shared.auth.internal.presentation
+
+expect class PhoneNumberViewModel
