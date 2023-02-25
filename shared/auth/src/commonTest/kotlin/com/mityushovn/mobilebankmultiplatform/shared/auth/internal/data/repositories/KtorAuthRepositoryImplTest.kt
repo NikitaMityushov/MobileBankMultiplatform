@@ -2,8 +2,6 @@ package com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.reposit
 
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.network.apis.KtorAuthApi
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.network.dto.input.PhoneNumberDto
-import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.network.dto.input.RefreshTokenDto
-import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.network.dto.input.SmsCodeDto
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.network.dto.output.AccessAndRefreshTokensDto
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.network.dto.output.GuestTokenDto
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.network.dto.output.OptCodeResponseDto
@@ -12,6 +10,7 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -35,6 +34,9 @@ internal class KtorAuthRepositoryImplTest {
     @MockK
     lateinit var api: KtorAuthApi
 
+    @MockK(relaxed = true)
+    lateinit var httpResponse: HttpResponse
+
     @InjectMockKs
     lateinit var repository: KtorAuthRepositoryImpl
 
@@ -45,16 +47,16 @@ internal class KtorAuthRepositoryImplTest {
         coEvery { api.getOptCode(PhoneNumberDto(VALID_RESULT_PHONE_NUMBER)) } returns OptCodeResponseDto(
             OPT_ID, OPT_CODE, OPT_LEN)
 
-        coEvery { api.getGuestToken(SmsCodeDto(OPT_ID, VALID_RESULT_PHONE_NUMBER, OPT_CODE)) } returns GuestTokenDto(
+        coEvery { api.getGuestToken(any()) } returns GuestTokenDto(
             GUEST_TOKEN)
 
-        coEvery { api.getAccessAndRefreshTokenFromGuestToken(GuestTokenDto(GUEST_TOKEN)) } returns AccessAndRefreshTokensDto(
+        coEvery { api.getAccessAndRefreshTokenFromGuestToken(any()) } returns AccessAndRefreshTokensDto(
             ACCESS_TOKEN, REFRESH_TOKEN)
 
-        coEvery { api.getAccessAndRefreshTokensFromRefreshToken(RefreshTokenDto(REFRESH_TOKEN)) } returns AccessAndRefreshTokensDto(
+        coEvery { api.getAccessAndRefreshTokensFromRefreshToken(any()) } returns AccessAndRefreshTokensDto(
             ACCESS_TOKEN, REFRESH_TOKEN)
 
-//        coEvery { api.logout(AccessTokenDto(ACCESS_TOKEN)) } returns
+        coEvery { api.logout(any()) } returns httpResponse
     }
 
     @Test
@@ -73,7 +75,6 @@ internal class KtorAuthRepositoryImplTest {
     }
 
     @Test
-    @Ignore("mocking of api call doesn't work")
     fun getGuestTokenTest() = runTest {
         // given
         // when
@@ -89,7 +90,6 @@ internal class KtorAuthRepositoryImplTest {
     }
 
     @Test
-    @Ignore("mocking of api call doesn't work")
     fun getAccessAndRefreshTokenFromGuestTokenTest() = runTest {
         // given
         // when
@@ -107,7 +107,6 @@ internal class KtorAuthRepositoryImplTest {
     }
 
     @Test
-    @Ignore("mocking of api call doesn't work")
     fun getAccessAndRefreshTokensFromRefreshTokenTest() = runTest {
         // given
         // when
@@ -125,7 +124,6 @@ internal class KtorAuthRepositoryImplTest {
     }
 
     @Test
-    @Ignore("should mock logout")
     fun logoutTest() = runTest {
         // given
         // when
@@ -134,7 +132,7 @@ internal class KtorAuthRepositoryImplTest {
                 { throw Exception(EITHER_ERROR_MESSAGE_LEFT) },
                 {
                     // then
-                    assertEquals(true, it)
+                    coVerify { api.logout(any()) }
                 }
             )
     }

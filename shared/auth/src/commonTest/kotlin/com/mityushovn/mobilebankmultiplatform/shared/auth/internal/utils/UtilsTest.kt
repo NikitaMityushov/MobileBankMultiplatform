@@ -18,7 +18,7 @@ private const val NOT_VALID_RESULT = "aidfjopajner"
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class UtilsTest {
-    @MockK
+    @MockK(relaxed = true)
     lateinit var httpResponse: HttpResponse
 
     private val validResponse: suspend () -> String = { VALID_RESULT }
@@ -76,14 +76,13 @@ class UtilsTest {
     }
 
     @Test
-    @Ignore("should mock httpResponse.getCall()")
+//    @Ignore("should mock httpResponse.getCall()")
     fun `if func throws RedirectResponseException then returns NetworkError`() = runTest {
         // given
         // when
         handleApiResponse { redirectNetworkErrorResponse.invoke() }.fold(
             // then
             {
-                println(it)
                 assertFalse(it is ParseError)
                 assertTrue(it is NetworkError)
             },
@@ -92,14 +91,12 @@ class UtilsTest {
     }
 
     @Test
-    @Ignore("should mock httpResponse.getCall()")
     fun `if func throws ServerResponseException then returns NetworkError`() = runTest {
         // given
         // when
         handleApiResponse { serverNetworkErrorResponse.invoke() }.fold(
             // then
             {
-                println(it)
                 assertFalse(it is ParseError)
                 assertTrue(it is NetworkError)
             },
@@ -108,14 +105,12 @@ class UtilsTest {
     }
 
     @Test
-    @Ignore("should mock httpResponse.getCall()")
     fun `if func throws ClientResponseException then returns NetworkError`() = runTest {
         // given
         // when
         handleApiResponse { clientNetworkErrorResponse.invoke() }.fold(
             // then
             {
-                println(it)
                 assertFalse(it is ParseError)
                 assertTrue(it is NetworkError)
             },
