@@ -14,7 +14,10 @@ dependencies {
         implementation(compose.foundation.foundation)
         implementation(compose.material.material)
         implementation(compose.activity)
-        implementation(platform(libs.compose.bom))
+        implementation(androidx.fragment.ktx)
+        implementation(androidx.navigation.fragment.ktx)
+        implementation(androidx.navigation.ui.ktx)
+        implementation(androidx.appcompat.appcompat)
     }
 
     implementation(project(":shared:sample"))

@@ -35,6 +35,9 @@ dependencyResolutionManagement {
                 library("androidx-fragment-ktx", "androidx.fragment:fragment-ktx:$fragmentVersion")
                 library("androidx-fragment-debug", "androidx.fragment:fragment-testing:$fragmentVersion")
 
+                val appCompatVersion = "1.6.1"
+                library("androidx-appcompat-appcompat", "androidx.appcompat:appcompat:$appCompatVersion")
+
                 val decomposeVersion = "1.0.0"
                 library("decompose-decompose", "com.arkivanov.decompose:decompose:$decomposeVersion")
                 library("decompose-compose-jetpack","com.arkivanov.decompose:extensions-compose-jetpack:$decomposeVersion")
@@ -75,7 +78,7 @@ dependencyResolutionManagement {
                 val navComponentFeature = "2.5.3"
                 library("androidx-navigation-fragment-ktx", "androidx.navigation:navigation-fragment-ktx:$navComponentFeature")
                 library("androidx-navigation-ui-ktx", "androidx.navigation:navigation-ui-ktx:$navComponentFeature")
-                library("androix-navigation-compose", "androidx.navigation:navigation-compose:$navComponentFeature")
+                library("androidx-navigation-compose", "androidx.navigation:navigation-compose:$navComponentFeature")
                 library("androidx-navigation-testing", "androidx.navigation:navigation-testing:$navComponentFeature")
 
                 val settingsVersion = "1.0.0"

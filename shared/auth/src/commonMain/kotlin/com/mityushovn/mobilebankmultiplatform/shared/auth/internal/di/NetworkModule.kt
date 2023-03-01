@@ -7,12 +7,11 @@ import io.ktor.client.plugins.logging.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import org.kodein.di.DI
-import org.kodein.di.bind
-import org.kodein.di.singleton
+import org.kodein.di.bindSingleton
 
 internal val networkModule = DI.Module(NetworkConfig.MODULE_NAME) {
-    bind<HttpClient>(HttpEngineFactory().createEngine()) with singleton {
-        HttpClient {
+    bindSingleton<HttpClient> {
+        HttpClient(HttpEngineFactory().createEngine()) {
             install(Logging) {
                 logger = Logger.SIMPLE
                 level = LogLevel.ALL

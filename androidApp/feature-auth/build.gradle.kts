@@ -1,5 +1,6 @@
 plugins {
     id("bank.library-android-compose")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -8,13 +9,13 @@ android {
 
 dependencies {
     with(libs) {
-//        implementation(compose.ui.ui)
-//        implementation(compose.ui.preview)
-//        implementation(compose.ui.tooling)
-//        implementation(compose.foundation.foundation)
-//        implementation(compose.material.material)
-        implementation(platform(compose.bom))
+        implementation(compose.ui.ui)
+        implementation(compose.ui.preview)
+        implementation(compose.ui.tooling)
+        implementation(compose.foundation.foundation)
+        implementation(compose.material.material)
         implementation(androidx.fragment.ktx)
+        implementation(compose.viewmodel)
     }
 
     implementation(project(":androidApp:ui"))
