@@ -1,6 +1,7 @@
 package com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.models
 
-data class OptCode(
+data class OtpCode(
     val optId: String,
-    val optCode: String
+    val optCode: String,
+    val optLen: String
 )

@@ -12,6 +12,7 @@ private const val REFRESH_TOKEN = "ALJSDBFGIUA4JORKEWFR4HIU3JOWE"
 private const val VALID_PHONE_NUMBER = "+79115552211"
 private const val OPT_ID = "1"
 private const val OPT_CODE = "OAEURTY9AUOIERMFQ2U"
+private const val OPT_LEN = "0"
 private const val GUEST_TOKEN = "IAJR9EUFNSDZAJW4IREJWFO"
 private const val PASSWORD = "AI348RJWEJNFJ2034U85T5U3N4IHU3I4G"
 
@@ -53,7 +54,7 @@ class MappersTest {
     @Test
     fun toSmsCodeDtoTest() {
         // given
-        val sms = SmsCode(PhoneNumber(VALID_PHONE_NUMBER), OptCode(OPT_ID, OPT_CODE))
+        val sms = SmsCode(PhoneNumber(VALID_PHONE_NUMBER), OtpCode(OPT_ID, OPT_CODE, OPT_LEN))
         // when
         val result = sms.toSmsCodeDto()
         // then

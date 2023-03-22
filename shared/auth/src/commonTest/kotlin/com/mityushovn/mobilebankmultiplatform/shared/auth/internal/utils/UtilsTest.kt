@@ -1,5 +1,6 @@
 package com.mityushovn.mobilebankmultiplatform.shared.auth.internal.utils
 
+import androidx.compose.ui.text.AnnotatedString
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.errors.UnknownError
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.errors.NetworkError
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.errors.ParseError
@@ -117,4 +118,13 @@ class UtilsTest {
             { throw Exception("Should return Either.Left == NetworkError, not Either.Right") }
         )
     }
+
+    @Test
+    fun `if string is empty then return empty string`() {
+        // 1)
+        val str1 = ""
+        val result = phoneNumberFilter(AnnotatedString(str1))
+        assertEquals("", result.text.text)
+    }
+
 }

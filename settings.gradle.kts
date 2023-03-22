@@ -20,7 +20,7 @@ dependencyResolutionManagement {
                 library("compose-ui-preview", "androidx.compose.ui:ui-tooling-preview:$composeVersion")
                 library("compose-foundation-foundation", "androidx.compose.foundation:foundation:$composeVersion")
                 library("compose-material-material", "androidx.compose.material:material:$composeVersion")
-                bundle("compose-theme", listOf("compose-ui-ui", "compose-foundation-foundation", "compose-material-material"))
+                bundle("compose-theme", listOf("compose-ui-ui", "compose-foundation-foundation", "compose-material-material", "compose-ui-tooling"))
 
                 val composeBomVersion = "2023.01.00"
                 library("compose-bom", "androidx.compose:compose-bom:$composeBomVersion")

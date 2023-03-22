@@ -2,5 +2,5 @@ package com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.model
 
 class SmsCode(
     val phoneNumber: PhoneNumber,
-    val optCode: OptCode
+    val optCode: OtpCode
 )

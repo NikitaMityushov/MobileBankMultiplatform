@@ -11,3 +11,5 @@ object ShortCodesAreNotTheSame: BankError
 object PasswordsAreNotTheSame: BankError
 object PinCodeIsNotValid: BankError
 object PasswordIsNotValid: BankError
+
+class OtpCodeIsWrong(val remainingAttempts: Int): BankError

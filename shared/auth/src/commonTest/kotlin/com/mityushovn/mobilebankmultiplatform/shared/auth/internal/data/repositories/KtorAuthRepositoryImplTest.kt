@@ -64,7 +64,7 @@ internal class KtorAuthRepositoryImplTest {
         // given
         // when
         repository
-            .getOptCode(PhoneNumber(VALID_RESULT_PHONE_NUMBER))
+            .getOtpCode(PhoneNumber(VALID_RESULT_PHONE_NUMBER))
             .fold(
                 { throw Exception(EITHER_ERROR_MESSAGE_LEFT) },
                 {
@@ -78,7 +78,7 @@ internal class KtorAuthRepositoryImplTest {
     fun getGuestTokenTest() = runTest {
         // given
         // when
-        repository.getGuestToken(SmsCode(PhoneNumber(VALID_RESULT_PHONE_NUMBER), OptCode(OPT_ID, OPT_CODE)))
+        repository.getGuestToken(SmsCode(PhoneNumber(VALID_RESULT_PHONE_NUMBER), OtpCode(OPT_ID, OPT_CODE, OPT_LEN.toString())))
             .fold(
                 { throw Exception(EITHER_ERROR_MESSAGE_LEFT) },
                 {

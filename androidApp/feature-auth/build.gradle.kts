@@ -15,6 +15,8 @@ dependencies {
         implementation(compose.foundation.foundation)
         implementation(compose.material.material)
         implementation(androidx.fragment.ktx)
+        implementation(androidx.navigation.fragment.ktx)
+        implementation(androidx.navigation.ui.ktx)
         implementation(compose.viewmodel)
     }
 

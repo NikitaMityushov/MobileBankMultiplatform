@@ -13,7 +13,7 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 
-private const val OPT_CODE_ENDPOINT = "/api/auth/login"
+private const val OPT_CODE_ENDPOINT = "api/auth/login"
 private const val GUEST_TOKEN_ENDPOINT = "api/auth/confirm"
 private const val TOKEN_FROM_GUEST_ENDPOINT = "api/auth/enter"
 private const val TOKEN_FROM_REFRESH_ENDPOINT = "api/auth/refresh"

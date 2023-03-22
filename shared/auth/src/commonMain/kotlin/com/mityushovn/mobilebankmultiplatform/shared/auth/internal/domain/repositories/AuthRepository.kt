@@ -6,7 +6,7 @@ import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.models
 
 interface AuthRepository {
 
-    suspend fun getOptCode(phoneNumber: PhoneNumber): Either<BankError, OptCode>
+    suspend fun getOtpCode(phoneNumber: PhoneNumber): Either<BankError, OtpCode>
 
     suspend fun getGuestToken(smsCode: SmsCode): Either<BankError, String>
 

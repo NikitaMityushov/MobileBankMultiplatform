@@ -30,7 +30,7 @@ internal fun GuestToken.toGuestTokenDto(): GuestTokenDto = GuestTokenDto(
     guestToken
 )
 
-internal fun OptCodeResponseDto.toOptCode(): OptCode = OptCode(optId, optCode)
+internal fun OptCodeResponseDto.toOptCode(): OtpCode = OtpCode(optId, optCode, optLen.toString())
 
 internal fun AccessAndRefreshTokensDto.toAccessAndRefreshTokens() = AccessAndRefreshTokens(
     accessToken, refreshToken

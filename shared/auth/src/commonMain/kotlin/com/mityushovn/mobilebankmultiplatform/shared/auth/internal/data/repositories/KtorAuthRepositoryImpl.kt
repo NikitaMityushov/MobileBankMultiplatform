@@ -10,7 +10,7 @@ import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.data.network.
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.errors.BankError
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.models.AccessAndRefreshTokens
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.models.GuestToken
-import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.models.OptCode
+import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.models.OtpCode
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.models.PhoneNumber
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.models.SmsCode
 import com.mityushovn.mobilebankmultiplatform.shared.auth.internal.domain.repositories.AuthRepository
@@ -20,7 +20,7 @@ import io.ktor.http.*
 internal class KtorAuthRepositoryImpl(
     private val api: KtorAuthApi
 ): AuthRepository {
-    override suspend fun getOptCode(phoneNumber: PhoneNumber): Either<BankError, OptCode> =
+    override suspend fun getOtpCode(phoneNumber: PhoneNumber): Either<BankError, OtpCode> =
         handleApiResponse {
             api.getOptCode(phoneNumber.toPhoneNumberDto()).toOptCode()
         }
